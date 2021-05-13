@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    /> -->
+    <link rel="stylesheet" href="./css/hamburgers.min.css" />
+    <link rel="stylesheet" href="./css/tailwind.min.css" />
+    <script src="./js/alpine.min.js" defer></script>
+    <title>Document</title>
+  </head>
+  <style>
+      body{
+          font-family: 'Quicksand';
+      }
+      @media screen and (max-width: 767px) {
+      nav {
+        transition: 0.4s ease;
+      }
+      .nav-collapsed {
+        margin-top: -140%;
+        transition: 0.4s ease;
+      }
+    }
+  </style>
+  <body class="bg-gray-50">
+    <div class="" x-data="{ active: false }">
+      <div class="w-full lg:hidden z-40 p-8 absolute">
+        <div
+          class="
+            hamburger
+            text-white
+            bg-gray-100
+            rounded-lg
+            float-right
+            is-active
+            mx-auto
+            w-max
+          "
+          :class="{ 'hamburger--3dx': active == true}"
+          @click="active = ! active"
+        >
+          <div class="hamburger-box">
+            <div class="hamburger-inner"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="">
+        <div
+          class="
+            absolute
+            z-40
+            mt-8
+            lg:mt-0
+            rounded-3xl
+            ml-10
+            bg-transparent
+            lg:px-6
+            lg:py-8
+            lg:pt-4
+            py-2
+            px-4
+          "
+        >
+          <img
+            src=""
+            alt="Logo!"
+            class="w-32 mt-0 lg:mt-6"
+          />
+        </div>
+      </div>
+
+      <nav
+        class="
+          absolute
+          bg-white
+          mx-auto
+          w-full
+          z-0
+          items-center
+          lg:py-4
+          pt-32
+          py-6
+          lg:flex
+          lg:px-16
+          justify-center
+          shadow-xl
+        "
+        :class="{'nav-collapsed': active == false}"
+      >
+        <ul class="ml-auto font-semibold lg:flex lg:p-0 p-8">
+          <a href="#"><li class="px-6 py-2">Continue Application</li></a>
+          <a href="#"><li class="px-6 text-white bg-green-400 rounded-full py-2">Apply</li></a>
+        </ul>
+      </nav>
+    </div>
+    <section class="py-24 mx-4 lg:mx-10" x-data="{ tab: 'personal info'}">
+        <main class="px-2 lg:px-10 my-auto bg-white shadow-xl rounded-3xl w-full lg:w-10/12 mx-auto">
+            <div class="p-10 divide-y">
+              <h1 class="text-2xl pt-4">Application Form</h1>
+              <!-- Here begins a Tab -->
+                <div class="my-4 py-3" x-show="tab == 'personal info'">
+                    <h3 class="font-semibold">Personal Details</h3>
+                    <div class="grid lg:grid-cols-3 gap-3 py-2 mb-5">
+                        <input type="text" placeholder="Firstname" class="bg-gray-50 capitalize focus:outline-none px-6 py-2 border shadow-inner rounded-xl">
+                        <input type="text" placeholder="Othernames (optional)" class="bg-gray-50 capitalize focus:outline-none px-6 py-2 border shadow-inner rounded-xl">
+                        <input type="text" placeholder="Lastname" class="bg-gray-50 capitalize focus:outline-none px-6 py-2 border shadow-inner rounded-xl">
+                        <div class="flex justify-start lg:justify-center items-center">
+                            <span class="pr-4">DOB:</span>
+                            <input type="date" placeholder="Lastname" class="w-max bg-gray-50 focus:outline-none px-6 py-2 border shadow-inner rounded-xl">
+                        </div>
+                        <div class="flex justify-start lg:justify-center items-center">
+                            <span class="pr-4">Gender:</span>
+                            <select name="gender" id="gender"  class="bg-gray-50 focus:outline-none px-6 py-2 border shadow rounded-xl">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        </div>
+                        <div class="flex justify-start lg:justify-center items-center">
+                          <span class="pr-4">Blood Group:</span>
+                            <select name="gender" id="gender"  class="bg-gray-50 focus:outline-none px-6 py-2 border shadow rounded-xl">
+                              <option value="a">A+</option>
+                              <option value="B">B</option>
+                            </select>
+                        </div>
+                        <div class="flex justify-start lg:justify-center items-center">
+                            <span class="pr-4 lg:pr-0 w-full">Country of origin:</span>
+                            <select name="gender" id="gender"  class="bg-gray-50 focus:outline-none px-6 py-2 border shadow rounded-xl">
+                              <option value="nigeria">Nigeria</option>
+                              <option value="ghana">Ghana</option>
+                            </select>
+                        </div>
+                        <div class="flex justify-start lg:justify-center items-center">
+                            <span class="pr-4">State of origin:</span>
+                            <select name="state" id="state"  class="bg-gray-50 focus:outline-none px-6 py-2 border shadow rounded-xl">
+                              <option value="abia">Abia</option>
+                            </select>
+                        </div>
+                        <div class="flex justify-start lg:justify-center items-center">
+                            <span class="pr-4">LGA of origin:</span>
+                            <select name="state" id="state"  class="bg-gray-50 focus:outline-none px-6 py-2 border shadow rounded-xl">
+                              <option value="abia">Abia</option>
+                            </select>
+                          </div>
+                        </div>
+                        <h3 class="font-semibold">Contact Details</h3>
+                        
+                        <div class="grid lg:grid-cols-2 gap-3 py-2">
+                          <input type="text" placeholder="Phone Number" class="border shadow-inner rounded-xl w-full bg-gray-50 block focus:outline-none shadow-inner px-6 py-2">
+                          <input type="text" placeholder="Alt. Phone Number" class="border shadow-inner rounded-xl w-full bg-gray-50 block focus:outline-none shadow-inner px-6 py-2">
+                          <input type="text" placeholder="Email Address" class="bg-gray-50 focus:outline-none px-6 py-2 border shadow-inner rounded-xl">
+                          <input type="text" placeholder="Alt. Email Address" class="bg-gray-50 focus:outline-none px-6 py-2 border shadow-inner rounded-xl">
+                          <input type="text" placeholder="Phone Number" class="bg-gray-50 focus:outline-none px-6 py-2 border shadow-inner rounded-xl">
+                          <input type="text" placeholder="Alt. Phone Number" class="bg-gray-50 focus:outline-none px-6 py-2 border shadow-inner rounded-xl">
+                        </div>
+                      <div class="w-full pt-4">
+                        <button @click="tab = 'course choice'" title="Go to next page" class="block focus:outline-none hover:bg-green-400 rounded-full w-max ml-auto px-8 py-3 bg-green-500 text-white">Next</button>
+                      </div>
+                    </div>
+                    <!-- Here ends a Tab -->
+                    <!-- Here starts a Tab -->
+                <div class="my-4 py-3" x-show="tab == 'course choice'" show.transition.in.duration.200ms.out.duration.50ms>
+                  <h3 class="font-semibold">Course Application Details</h3>
+                  <select name="course" id="course"  class="bg-gray-50 w-full focus:outline-none mt-4 px-6 py-3 shadow rounded-xl">
+                    <option value="">Choose a program type</option>
+                    <option value="diploma">Diploma</option>
+                      <option value="degree">Degree</option>
+                    </select>
+                    <select name="course" id="course"  class="bg-gray-50 w-full focus:outline-none mt-4 px-6 py-3 shadow rounded-xl">
+                      <option value="">Select a course</option>
+                      <option value="Computer Science">Computer Science</option>
+                      <option value="Computer Engineering">Computer Engineering</option>
+                    </select>
+                    <p class="py-4 my-4 text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi sint ratione corrupti aperiam, ullam quae ea necessitatibus delectus culpa impedit numquam perspiciatis repellendus veniam! Officia assumenda expedita ipsa quasi? Veritatis dolorem nam veniam doloribus unde ab ipsam, odit voluptatem sequi.</p>
+                    <div class="w-full pt-4">
+                      <button @click="tab = 'results'" class="block focus:outline-none hover:bg-green-400 rounded-full w-max ml-auto px-8 py-3 bg-green-500 text-white">Next</button>
+                    </div>
+                  </div>
+                  <!-- Here ends a Tab -->
+                  <!-- Here starts a Tab -->
+                  <div class="my-4 py-3" x-show="tab == 'results'" >
+                    <h3 class="font-semibold">O Level Data</h3>
+                    <div class="grid lg:grid-cols-2 gap-5">
+                      <div class="text-sm w-full">
+                        <h3 class="font-semibold mt-6">Centre & Candidate Information</h3>
+                        <div class="grid grid-cols-2 gap-4 ">
+                          <select name="sitting" id="sitting"  class="text-sm bg-gray-50 w-full focus:outline-none mt-4 px-6 py-3 shadow rounded-xl">
+                            <option value="">Select sitting</option>
+                            <option value="First">First Sitting</option>
+                            <option value="Second">Second Sitting</option>
+                          </select>
+                          <select name="year" id="year"  class="text-sm bg-gray-50 w-full focus:outline-none mt-4 px-6 py-3 shadow rounded-xl">
+                            <option value="">Select exam year</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                          </select>
+                          <select  name="type" id="type" class="text-sm bg-gray-50 w-full focus:outline-none px-6 py-3 shadow rounded-xl">
+                            <option value="">Select exams type</option>
+                            <option value="WAEC">WAEC</option>
+                            <option value="NECO">NECO</option>
+                          </select>
+                          <input type="text" placeholder="Center Number" class="border shadow-inner rounded-xl w-full bg-gray-50 focus:outline-none shadow-inner px-6 py-1">
+                        </div>
+                        <div class="mt-4">
+                          <input type="text" placeholder="Center Name" class="capitalize border shadow-inner rounded-xl w-full bg-gray-50 focus:outline-none shadow-inner px-6 py-3">
+                          <input type="text" placeholder="Exam Number" class="mt-4 border shadow-inner rounded-xl w-full bg-gray-50 focus:outline-none shadow-inner px-6 py-3">
+                        </div>
+                        <div class="hidden lg:block lg:w-full lg:h-44">
+                          <p class="py-8 w-10/12">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat illo nemo quidem esse nisi voluptate minus exercitationem magni, eum saepe.</p>
+                          <a href="#" class="w-max block text-blue-400 mottom-0 pt-5 ">Add another sitting</a>
+                        </div>
+                      </div>
+                      <div class="">
+                        <h3 class="font-semibold mt-6">Result Data</h3>
+                        <div class="flex gap-4 mt-4">
+                          <select  name="sub1" id="sub1" class="text-sm bg-gray-50 w-8/12 focus:outline-none px-6 py-3 shadow rounded-xl">
+                            <option value="">Subject</option>
+                            <option value="English Language">English Language</option>
+                            <option value="Mathematics">Mathematics</option>
+                          </select>
+                          <select  name="sub2" id="sub2" class="text-sm bg-gray-50 lg:w-3/12 w-6/12 focus:outline-none px-3 py-3 shadow rounded-xl">
+                            <option value="">Grade</option>
+                            <option value="A1">A1</option>
+                            <option value="B2">B2</option>
+                          </select>
+                        </div>
+                        <div class="flex gap-4 mt-2">
+                          <select  name="sub1" id="sub1" class="text-sm bg-gray-50 w-8/12 focus:outline-none px-6 py-3 shadow rounded-xl">
+                            <option value="">Subject</option>
+                            <option value="English Language">English Language</option>
+                            <option value="Mathematics">Mathematics</option>
+                          </select>
+                          <select  name="sub2" id="sub2" class="text-sm bg-gray-50 lg:w-3/12 w-6/12 focus:outline-none px-3 py-3 shadow rounded-xl">
+                            <option value="">Grade</option>
+                            <option value="A1">A1</option>
+                            <option value="B2">B2</option>
+                          </select>
+                        </div>
+                        <div class="flex gap-4 mt-2">
+                          <select  name="sub1" id="sub1" class="text-sm bg-gray-50 w-8/12 focus:outline-none px-6 py-3 shadow rounded-xl">
+                            <option value="">Subject</option>
+                            <option value="English Language">English Language</option>
+                            <option value="Mathematics">Mathematics</option>
+                          </select>
+                          <select  name="sub2" id="sub2" class="text-sm bg-gray-50 lg:w-3/12 w-6/12 focus:outline-none px-3 py-3 shadow rounded-xl">
+                            <option value="">Grade</option>
+                            <option value="A1">A1</option>
+                            <option value="B2">B2</option>
+                          </select>
+                        </div>
+                        <div class="flex gap-4 mt-2">
+                          <select  name="sub1" id="sub1" class="text-sm bg-gray-50 w-8/12 focus:outline-none px-6 py-3 shadow rounded-xl">
+                            <option value="">Subject</option>
+                            <option value="English Language">English Language</option>
+                            <option value="Mathematics">Mathematics</option>
+                          </select>
+                          <select  name="sub2" id="sub2" class="text-sm bg-gray-50 lg:w-3/12 w-6/12 focus:outline-none px-3 py-3 shadow rounded-xl">
+                            <option value="">Grade</option>
+                            <option value="A1">A1</option>
+                            <option value="B2">B2</option>
+                          </select>
+                        </div>
+                        <div class="flex gap-4 mt-2">
+                          <select  name="sub1" id="sub1" class="text-sm bg-gray-50 w-8/12 focus:outline-none px-6 py-3 shadow rounded-xl">
+                            <option value="">Subject</option>
+                            <option value="English Language">English Language</option>
+                            <option value="Mathematics">Mathematics</option>
+                          </select>
+                          <select  name="sub2" id="sub2" class="text-sm bg-gray-50 lg:w-3/12 w-6/12 focus:outline-none px-3 py-3 shadow rounded-xl">
+                            <option value="">Grade</option>
+                            <option value="A1">A1</option>
+                            <option value="B2">B2</option>
+                          </select>
+                        </div>
+                        <div class="flex gap-4 mt-2">
+                          <select  name="sub1" id="sub1" class="text-sm bg-gray-50 w-8/12 focus:outline-none px-6 py-3 shadow rounded-xl">
+                            <option value="">Subject</option>
+                            <option value="English Language">English Language</option>
+                            <option value="Mathematics">Mathematics</option>
+                          </select>
+                          <select  name="sub2" id="sub2" class="text-sm bg-gray-50 lg:w-3/12 w-6/12 focus:outline-none px-3 py-3 shadow rounded-xl">
+                            <option value="">Grade</option>
+                            <option value="A1">A1</option>
+                            <option value="B2">B2</option>
+                          </select>
+                        </div>
+                        <div class="flex gap-4 mt-2">
+                          <select  name="sub1" id="sub1" class="text-sm bg-gray-50 w-8/12 focus:outline-none px-6 py-3 shadow rounded-xl">
+                            <option value="">Subject</option>
+                            <option value="English Language">English Language</option>
+                            <option value="Mathematics">Mathematics</option>
+                          </select>
+                          <select  name="sub2" id="sub2" class="text-sm bg-gray-50 lg:w-3/12 w-6/12 focus:outline-none px-3 py-3 shadow rounded-xl">
+                            <option value="">Grade</option>
+                            <option value="A1">A1</option>
+                            <option value="B2">B2</option>
+                          </select>
+                        </div>
+                        <div class="flex gap-4 mt-2">
+                          <select  name="sub1" id="sub1" class="text-sm bg-gray-50 w-8/12 focus:outline-none px-6 py-3 shadow rounded-xl">
+                            <option value="">Subject</option>
+                            <option value="English Language">English Language</option>
+                            <option value="Mathematics">Mathematics</option>
+                          </select>
+                          <select  name="sub2" id="sub2" class="text-sm bg-gray-50 lg:w-3/12 w-6/12 focus:outline-none px-3 py-3 shadow rounded-xl">
+                            <option value="">Grade</option>
+                            <option value="A1">A1</option>
+                            <option value="B2">B2</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lg:hidden block lg:w-full lg:h-16">
+                      <a href="#" class="w-max block text-blue-400 pt-8 ">Add another sitting</a>
+                    </div>
+                    <div class="w-full pt-8">
+                      <button @click="tab = 'state'" class="block ring-2 ring-green-400 transition duration-300 focus:outline-none hover:bg-green-400 rounded-full w-max ml-auto px-8 py-3 bg-green-500 text-white">Next</button>
+                    </div>
+                  </div>
+                  <!-- Here ends a Tab -->
+                  <div class="my-4 py-3" x-show="tab == 'state'">
+                    <h3 class="font-semibold py-2">Application State</h3>
+                    <div class="pt-4">
+                      <div class="flex w-64 px-6 py-2 bg-gray-100 rounded-full">
+                        <span>Personal Details</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-4 text-green-400 block ml-auto icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <path d="M5 12l5 5l10 -10" />
+                        </svg>                        
+                      </div>
+                      <div class="flex mt-2 w-64 px-6 py-2 bg-gray-100 rounded-full">
+                        <span>Application Details</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-4 text-green-400 block ml-auto icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <path d="M5 12l5 5l10 -10" />
+                        </svg>                        
+                      </div>
+                      <div class="flex mt-2 w-64 px-6 py-2 bg-gray-100 rounded-full">
+                        <span>O Level Data</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-4 text-green-400 block ml-auto icon icon-tabler icon-tabler-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <path d="M5 12l5 5l10 -10" />
+                        </svg>                        
+                      </div>
+                      <div class="flex mt-2 w-64 px-6 py-2 bg-gray-100 rounded-full">
+                        <span>Form Fee Payment</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="text-red-500 block ml-auto icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                          <line x1="18" y1="6" x2="6" y2="18" />
+                          <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>                     
+                      </div>
+                    </div>
+                    <div class="w-full pt-8">
+                      <button @click="tab = 'personal info'" class="block ring-2 ring-green-400 transition duration-300 focus:outline-none hover:bg-green-400 rounded-full w-max ml-auto px-8 py-3 bg-green-500 text-white">Next</button>
+                    </div>
+                  </div>
+            </div>
+        </main>
+    </section>
+  </body>
+</html>
